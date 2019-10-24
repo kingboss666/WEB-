@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>转盘抽奖</title>
+		<style type="text/css">
+			body,p{padding: 0; margin: 0;}
+			#table{user-select:none;} /* 无法选中 */
+			td{
+				width: 150px;
+				height: 100px;
+				font-size: 35px;
+				background-color: #666;
+				text-align: center;
+				color: #000;
+			}
+			.select{
+				background-color: #f60;
+			}
+			#start{
+				background-color: #f60;
+				cursor: pointer;
+			}
+			.prize{
+				position: absolute;
+				top: 80px;
+				left: 850px;
+				width: 300px;
+				height: 400px;
+				/* border: 1px solid #000; */
+			}
+			.prize img{
+				width: 100%;
+				user-select:none;
+			}
+			.prize p{
+				width: 100%;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				font-size: 20px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="table">
+			<tr>
+				<td class="select">三等奖</td>
+				<td>鼓励奖</td>
+				<td>二等奖</td>
+				<td>鼓励奖</td>
+				<td>三等奖</td>
+			</tr>
+			<tr>
+				<td>鼓励奖</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>鼓励奖</td>
+			</tr>
+			<tr>
+				<td>一等奖</td>
+				<td></td>
+				<td id="start">开始</td>
+				<td></td>
+				<td>二等奖</td>
+			</tr>
+			<tr>
+				<td>鼓励奖</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>鼓励奖</td>
+			</tr>
+			<tr>
+				<td>三等奖</td>
+				<td>鼓励奖</td>
+				<td>二等奖</td>
+				<td>鼓励奖</td>
+				<td>三等奖</td>
+			</tr>
+		</table>
+		<div class="prize">
+			<img src="">
+			<p></p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var tdList = document.getElementById("table").getElementsByTagName("td");
+		var start = document.getElementById("start");
+		//设定的路线
+		var tdId = 0;
+		var ary =[0,1,2,3,4,9,14,19,24,23,22,21,20,15,10,5];
+		//设定终点
+		var maxNum = 0;
+		var runNum;
+		//点击次数
+		var bool = false;
+		start.onclick = function(){
+			if(bool){
+				//限制点击次数
+				console.log(bool);
+			}else{
+				bool = true;
+				//点击开始
+				runNum = 0;
+				maxNum = 16*3+parseInt(Math.random() *16)
+				run = setInterval(playFunc,200);
+				prizeimg.setAttribute("src","");
+				prizeP.innerHTML = "" ;
+			}
+		}
+		
+		//设定奖品
+		var prize = document.getElementsByClassName("prize")[0];
+		var prizeimg = prize.getElementsByTagName("img")[0];
+		var prizeP = prize.getElementsByTagName("p")[0];
+		var prizeAry = ["images/alienware.jpg","images/bicycle.jpg","images/adidas.jpg","images/tissue.jpg"];
+		
+		function playFunc(){
+			//转动
+			tdList[ary[tdId]].className = "";
+			tdId = tdId+1 >= ary.length? 0 :tdId+1;
+			tdList[ary[tdId]].className = "select";
+			//终点
+			runNum++;
+			if(runNum >= maxNum){
+				clearInterval(run);
+				setTimeout(function(){
+					//最终中得奖品
+					if(tdId == 14){
+						prizeimg.setAttribute("src",prizeAry[0]);
+						prizeP.innerHTML = "恭喜中得外星人电脑一台" ;
+					}else if(tdId == 2 || tdId == 6 || tdId == 10){
+						prizeimg.setAttribute("src",prizeAry[1]);
+						prizeP.innerHTML = "恭喜中得山地自行车一辆" ;
+					}else if(tdId == 0 || tdId == 4 || tdId == 8 || tdId == 12){
+						prizeimg.setAttribute("src",prizeAry[2]);
+						prizeP.innerHTML = "恭喜中得adidas衣服一件" ;
+					}else{
+						prizeimg.setAttribute("src",prizeAry[3]);
+						prizeP.innerHTML = "纸巾一包，请再接再厉" ;
+					}
+				},50)
+				setTimeout(function(){bool = false;},500); //到终点500ms之后才能再次点击
+				return;
+			}
+			
+			//改变转速
+			if(runNum==6){
+				//提速
+				clearInterval(run);
+				run = setInterval(playFunc,40);
+			}
+			if(runNum+6 == maxNum){
+				//减速
+				clearInterval(run);
+				run = setInterval(playFunc,200);
+			}
+		}
+	</script>
+</html>

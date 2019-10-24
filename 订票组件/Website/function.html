@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//削水果
+			function fruits(name,num,size){
+				name = name || "土豆";
+				num= num || 5;
+				size= size || "小";
+				document.write("洗"+name+"<br />")
+				for(var i=0;i<num;i++){
+					document.write("去皮"+(i+1)+"<br />")
+				}
+				document.write("切"+size+"块<br />")
+				document.write("插上牙签"+"<br />")
+			}
+			
+			fruits();
+			
+			// 函数小结
+			// var x = 2;
+			// if( x > 1){
+			// 	function mySum(num){
+			// 		if(num>10000){
+			// 			console.log('值太大了')
+			// 			return 1;
+			// 		}
+			// 		var sum = 0;
+			// 		for(i=1;i<=num;i++){
+			// 			sum +=i;
+			// 		}
+			// 		return sum;
+			// 	}
+			// }
+			// console.log(mySum(100));
+			
+			//函数的作用域
+			// var x=1;
+			// function func(){
+			// 	var x= 2;
+			// 	
+			// 	function e1(){
+			// 		return x;
+			// 	}
+			// 	
+			// 	var e2 = new Function("return x;")
+			// 	return [e1,e2];
+			// }
+			// 
+			// alert(func()[0]());
+			// alert(func()[1]());
+			
+			//形参和实参
+			// function add(){
+			// 	var r = 0;
+			// 	for (var i =0;i<arguments.length;i++){
+			// 		
+			// 		r+=arguments[i];
+			// 		
+			// 	}
+			// 	return r;
+			// }
+			// console.log( add() );
+			// console.log( add(1,2) );
+			// console.log( add(1,3,5,7,9) );
+			
+			// 函数的三大特性
+			// function f(){
+			// 	if(f.x == undefined){
+			// 		f.x = 0;
+			// 	}
+			// 	return f.x++;
+			// }
+			// 
+			// for(var i=0;i<=100;i++){
+			// 	console.log("i = "+ i +" x "+f());
+			// }
+			
+			//call和apple
+		// 	function add(){
+		// 		return this.x+this.y;
+		// 	}
+		// 	var obj={
+		// 		x:1,
+		// 		y:2,
+		// 	};
+		// 	
+		// 	console.log(add.call(obj,2,3));
+		
+		//bind
+		var x = 10;
+		var y = 20;
+		function add(a,b){
+			return this.x*a + this.y*b;
+		}
+		var obj1 = {
+			x:1,
+			y:2,
+		}
+		var obj2 = {
+			x:5,
+			y:6,
+		}
+		//obj.e = add.bind(obj,10); //可以给形参默认初始化的值
+		
+		console.log(add(10,10));
+		
+		console.log(add.bind(obj1,20)(10));
+		
+		obj2.e = add.bind(obj2,20,30);
+		console.log(obj2.e(100,3000));
+		</script>
+	</body>
+</html>

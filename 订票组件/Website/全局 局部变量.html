@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>全局 局部变量</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//全局变量
+			var y =1 ;
+			function test(){
+				// var x = 0;
+				// x++;
+				y++;
+			}
+			console.log(y);
+			test();
+			console.log(y);
+			test();
+			console.log(y);
+			
+			console.log("------");
+			
+			//局部变量
+			function test2(num){
+				var x = num || 1;
+				x = x*2;
+				return x;
+			}
+			var a = test2();
+			var b = test2(10);
+		</script>
+	</body>
+</html>

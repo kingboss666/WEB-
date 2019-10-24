@@ -1,0 +1,26 @@
+.warpper{
+	text-align: center;
+}
+.warpper a,.warpper span{
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	margin: 0 5px;
+}
+.warpper a{
+	border: 1px solid #ddd;
+	line-height: 36px;
+	text-decoration: none;
+}
+.warpper span{
+	color: #666;
+	font-weight: 600;
+}
+.warpper .next,.warpper .prev,.warpper .disabled{
+	width: auto;
+	padding: 0 20px;
+}
+.warpper .disabled{
+	color: #ccc;
+	cursor: not-allowed;
+}

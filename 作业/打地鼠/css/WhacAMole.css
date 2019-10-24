@@ -1,0 +1,95 @@
+/* 舞台 */
+#scene{
+	width: 750px;
+	height: 550px;
+	background-image: url("../images/1.png");
+	position: absolute;
+	user-select: none;
+	cursor: none;
+}
+/* 锤子 */
+#hammer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	margin-left: -40px;
+	margin-top: -40px;
+}
+/* 分数 */
+#gmaeNum{
+	/* border: 1px solid #000; */
+	position: absolute;
+	width: 117px;
+	height: 24px;
+	top: 193px;
+	left: 229px;
+	text-align: center;
+	line-height: 24px;
+}
+/* 倒计时 */
+#countDown{
+	/* border: 1px solid #000; */
+	position: absolute;
+	width: 117px;
+	height: 24px;
+	top: 193px;
+	left: 482px;
+	text-align: center;
+	line-height: 24px;
+}
+#countDown p{
+	font-size: 18px;
+	position: absolute;
+	top: -19.5px;
+	left: 70px;
+}
+/* 老鼠 */
+div[id^=hollow]{
+	height: 103px;
+	width: 102px;
+	position: absolute;
+	overflow: hidden;
+}
+#hollow1{
+	top: 165px;
+	left: 140px;
+}
+
+#hollow2{
+	top: 165px;
+	left: 330px;
+}
+#hollow3{
+	top: 165px;
+	left: 530px;
+}
+#hollow4{
+	top: 260px;
+	left: 120px;
+}
+#hollow5{
+	top: 260px;
+	left: 335px;
+}
+#hollow6{
+	top: 260px;
+	left: 535px;
+}
+#hollow7{
+	top: 350px;
+	left: 110px;
+}
+#hollow8{
+	top: 360px;
+	left: 340px;
+}
+#hollow9{
+	top: 360px;
+	left: 550px;
+}
+div[id^=hollow] img{
+	position: absolute;
+	top: 102px;
+	left: 0;
+}

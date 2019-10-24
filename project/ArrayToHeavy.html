@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>数组去重</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			Array.prototype.distinct = function () {
+				var set=[];
+				for(var i=0; i<this.length;i++){
+					for(var j=i+1;j<this.length;){
+						if(this[i]==this[j]){
+							var a = this.splice(j,1);
+							set.push(a[0]);
+						}else{
+							j++;
+						}
+					}
+				}
+				return set;
+			}
+			
+			var x=['a','b','c','d','b','a','e',1,1,1,1,1]
+			var y = x.distinct();
+		</script>
+	</body>
+</html>

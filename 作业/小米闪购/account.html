@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>小米登录页</title>
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="css/account.css"/>
+	</head>
+	<body>
+		<div class="logo">
+			<div class="container">
+				<a href="index.html">小米网</a>
+			</div>
+		</div>
+		
+		<div class="panel">
+			<div class="container clearfix">
+				<div class="layout">
+					<div class="tabs">
+						<a href="###" class="select" id="login">帐号登录</a>
+						<span></span>
+						<a href="###" id="register">注册帐号</a>
+					</div>
+					<div class="account_1">
+						<form action="#">
+							<input type="text" placeholder="邮箱/手机号码/小米ID"/>
+							<input type="password" placeholder="密码"/>
+							<input type="password" placeholder="重复密码" id="pas2" style="display: none;"/>
+							<input type="submit" id="btn" value="登录"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div class="container">
+				<div>
+					<ul class="clearfix">
+						<li><a href="javascript:;">简体</a>|</li>
+						<li><a href="javascript:;">繁体</a>|</li>
+						<li><a href="javascript:;">English</a>|</li>
+						<li><a href="javascript:;">常见问题</a>|</li>
+						<li><a href="javascript:;">隐私政策</a></li>
+					</ul>
+				</div>
+				<p>
+					小米公司版权所有-京ICP备10046444-
+					<a href="###"><span><img src="images/ghs.png" ></span>京公网安备11010802020134号-</a>
+					京ICP证110507号
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var login = document.getElementById("login");
+			var register = document.getElementById("register");
+			var pas2 = document.getElementById("pas2");
+			var btn = document.getElementById("btn");
+			login.onclick = function(e){
+				pas2.style.display = "none";
+				btn.value = "登录";
+				login.className = 'select';
+				register.className = "";
+			}
+			register.onclick = function(e){
+				pas2.style.display = "block";
+				btn.value = "注册";
+				login.className = '';
+				register.className = "select";
+			}
+			
+			var panel = document.getElementsByClassName("panel")[0];
+			panel.onclick = function(){
+				window.open("https://www.mi.com");
+			}
+			
+			var layout = document.getElementsByClassName("layout")[0];
+			layout.onclick=function(e){
+				event.stopPropagation();
+			}
+		</script>
+	</body>
+</html>

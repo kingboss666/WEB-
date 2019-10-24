@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>手动封装ajax</title>
+	</head>
+	<body>
+		姓名：<input type="text" />
+		年龄：<input type="text" />
+		<input type="submit" value="提交" class="btn">
+		
+		<div>
+			<button type="button" class="btn">btn</button>
+			<ul class="box"></ul>
+		</div>
+	</body>
+	<script src="./js/ajax.js"></script>
+	<script type="text/javascript">
+		// 点击提交按钮
+		document.getElementsByClassName('btn')[0].onclick = function() {
+			dom();
+		};
+
+		function dom() {
+			var input1 = document.getElementsByTagName('input')[0];
+			var input2 = document.getElementsByTagName('input')[1];
+			var value1 = input1.value;
+			var value2 = input2.value;
+			//post传入格式必需为 "userage=king&age=18"
+			var str = 'username=' + value1 + '&age=' + value2;
+			// console.log(str);
+			ajax('post', './php/post.php', postCbs, str, true);
+		}
+		//post回调函数
+		function postCbs(data) {
+			console.log(data);
+		}
+
+		// 点击btn按钮
+		document.getElementsByClassName('btn')[1].onclick = function() {
+			ajax('get', './php/getNews.php', getCbs, '', true);
+		}
+		//get回调函数
+		function getCbs(val) {
+			var oUl = document.getElementsByTagName("ul")[0];
+			var str = '';
+			// 将字符串变成json
+			data = JSON.parse(val);
+			data.forEach(function(ele, index) {
+				str += '<li>' + ele.title + '。' + ele.date + '</li>';
+			});
+			oUl.innerHTML = str;
+		}
+	</script>
+</html>

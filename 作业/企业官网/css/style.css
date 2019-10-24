@@ -1,0 +1,441 @@
+/* 通用样式 */
+body,ul,li,a,h1,h3{
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* 头部样式 */
+.header{
+	background-image: url("../images/bg4.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.header .header-main{
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+/* 头部logo */
+.header .header-logo{
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+.header .header-logo img{
+	width: 10%;
+	padding: 10px 0;
+}
+
+/* 头部导航 */
+.header .header-menu{
+	display: none;
+	height: 150px;
+	line-height: 150px;
+}
+.header .header-menu ul{
+	display: flex;
+	justify-content: space-around;
+}
+.header .header-menu ul li{
+	width: 100px;
+	text-align: center;
+	flex: 1;
+}
+.header .header-menu ul li a{
+	color: #eee;
+}
+
+/* 头部标题 */
+.header .header-title{
+	font-size: 46px;
+	color: #fff;
+	text-align: center;
+	font-weight: 900;
+}
+
+@media screen and (max-width:767px) {
+	.header .header-title{
+		padding: 12vw 0;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.header .header-main{
+		padding: 40px 0 80px;
+	}
+	
+	.header .header-menu{
+		display: block;
+	}
+	.header .header-title{
+		padding: 6vw 0;
+	}
+}
+
+@media screen and (min-width:1200px) {
+	.header .header-main{
+		width: 67%;
+	}
+	.header .header-title{
+		padding: 7vw 0;
+	}
+}
+
+
+/* 新品介绍 */
+.new-products .intro{
+	background-image: url("../images/icon01.png");
+	background-repeat: no-repeat;
+	background-size: 27px 28px;
+	height: 28px;
+	margin: 60px 0 40px;
+	line-height: 28px;
+	font-size: 16px;
+	font-weight: bold;
+	text-indent: 40px;
+}
+
+/* 图片墙 */
+.new-products .pics{
+	display: flex;
+	margin-bottom: 40px;
+}
+.new-products .pics .left,
+.new-products .pics .right{
+	flex-grow:1;
+}
+.new-products .pics .left img,
+.new-products .pics .right .down img{
+	width: 100%;
+	display: block;
+}
+
+.new-products .pics .right .up{
+	display: flex;
+}
+
+.new-products .pics .right .up img{
+	width: 50%;
+	height: 100%;
+	flex-grow:1;
+}
+
+@media screen and (max-width:1200px) {
+	.new-products .pics{
+		flex-wrap: wrap;
+	}
+}
+/* 咖啡名称 */
+.coffee .coffee-name ul{
+	display: flex;
+	color: rgb(153,153,153);
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+}
+.coffee .coffee-name ul .coffee-item{
+	position: relative;
+	width: 100px;
+	text-align: center;
+	flex-grow: 1;
+	cursor: pointer;
+}
+.coffee .coffee-name ul .coffee-item .active{
+	position: absolute;
+	bottom: 0;
+	width: 50%;
+	left: 50%;
+	border-bottom: 3px solid #000;
+	transform: translate(-50%);
+}
+
+/* 咖啡详细介绍 */
+.coffee .coffee-detail{
+	width: 100%;
+	height: 410px;
+	position: relative;
+}
+
+.coffee .coffee-detail .item{
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	border: 1px solid #e6e6e6;
+	padding: 50px 13px;
+	box-sizing: border-box;
+	font-size: 0px;
+}
+.coffee .coffee-detail .item1{
+	display: block;
+}
+
+.coffee .coffee-detail .item > li{
+	display: inline-block;
+	width: 50%;
+	margin: 20px 0;
+}
+.coffee .coffee-detail .item > li > div{
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+}
+.coffee .coffee-detail .item > li > div img{
+	width: 100%;
+	margin-top: 12px;
+}
+.coffee .coffee-detail .item a{
+	display: block;
+	height: 34px;
+	margin-top: 19px;
+	font-size: 18px;
+	color: #000;
+	font-weight: bold;
+}
+.coffee .coffee-detail .item p{
+	height: 20px;
+	font-size: 12px;
+	color: #565656;
+	margin: 19px 0;
+}
+@media screen and (max-width:768px) {
+	.coffee .coffee-detail .item > li{
+		width: 100%;
+	}
+	.coffee .coffee-detail .item > li > div img{
+		width: 158px;
+	}
+	.coffee .coffee-detail .item p{
+		margin: 2px 0;
+	}
+}
+
+/* 新闻中心 */
+.news{
+	width: 100%;
+	min-height: 880px;
+	background-image: url("../images/bg7.jpg");
+	background-size: cover;
+	background-position: center;
+
+}
+.news .title{
+	font-weight: bold;
+	padding: 100px 0 60px;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+}
+.news .title img{
+	width: 27px;
+	margin: 0 10px;
+	vertical-align: middle;
+}
+
+/*详细新闻*/
+.news .news-detail{
+	font-size: 0;
+}
+.news .news-detail ul{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.news .news-detail ul li{
+	display: inline-block;
+	width: 48%;
+	font-size: 16px;
+	margin-top: 30px;
+	text-align: center;
+	overflow: hidden;
+}
+.news .news-detail ul li img{
+	width: 97%;
+	max-width: 300px;
+	margin: 0 auto 30px;
+}
+.news .news-detail ul li p{
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 97%;
+	height: 50px;
+	line-height: 25px;
+	margin: 0 0 0 2%;
+	color: #666;
+}
+
+@media screen and (max-width:768px){
+	.news .news-detail ul li{
+		display: block;
+		width: 90%;
+	}
+}
+/* 关于我们 */
+.about-us{
+	margin: 80px 0;
+	text-align: center;
+}
+.about-us .title{
+	font-weight: bold;
+	color: #363d70;
+}
+.about-us .title img{
+	width: 27px;
+	margin: 0 10px;
+	vertical-align: middle;
+}
+.about-us p{
+	margin: 13px 0;
+	font-size: 12px;
+}
+
+@media screen and (max-width:767px) {
+	.about-us .title{
+		padding: 12vw 0;
+	}
+}
+
+@media screen and (min-width:768px) {
+	.about-us .title{
+		padding: 6vw 0;
+	}
+}
+
+@media screen and (min-width:1200px) {
+	.about-us .title{
+		padding: 7vw 0;
+	}
+}
+
+/* 顶级咖啡 */
+.topCoffee{
+	margin-bottom: 161px;
+}
+.topCoffee ul{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	font-size: 0;
+}
+.topCoffee ul li{
+	width: 50%;
+	font-size: 12px;
+}
+.topCoffee ul li:nth-child(1){
+	text-align: center;
+}
+.topCoffee ul li:nth-child(2){
+	display: flex;
+	justify-content: center;
+}
+
+.topCoffee ul li img{
+	width: 100%;
+}
+
+.topCoffee ul li h3{
+	padding: 80px 0 18px;
+	font-size: 36px;
+}
+.topCoffee ul li p{
+	margin: 10px 0;
+	font-size: 12px;
+}
+.topCoffee ul li button{
+	width: 146px;
+	height: 36px;
+	line-height: 36px;
+	background-color: #363d70;
+	text-align: center;
+	color: #fff;
+	margin-top: 40px;
+	border: none;
+}
+
+@media screen and (max-width:768px) {
+	.topCoffee ul li{
+		width: 90%;
+	}
+}
+
+@media screen and (min-width:769px) {
+	.topCoffee ul li img{
+		max-width: 432px;
+	}
+}
+
+/* 页尾 */
+.footer .container{
+	width: 100%;
+	height: 101px;
+	background-color: #363D70;
+	max-width: inherit;
+}
+.footer ul{
+	font-size: 0;
+	display: flex;
+	justify-content: center;
+	padding: 40px 0;
+	height: 16px;
+}
+.footer ul li a{
+	color: #fff;
+	line-height: 16px;
+	font-size: 14px;
+}
+.footer ul li span{
+	color: #ccc;
+	padding: 0 8px;
+	font-size: 16px;
+}
+
+/* 左向右动画 */
+.toRightAni{
+	animation: toRigth 1s cubic-bezier(0.42,0,0.58,1);
+}
+@keyframes toRigth{
+	0%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+
+/* 左右晃动动画 */
+.logoMoveAni{
+	animation: logoMove 1s ease;
+}
+@keyframes logoMove{
+	0%{
+		transform: perspective(400px) rotate3d(0,1,0,90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+	40%{
+		transform: perspective(400px) rotate3d(0,1,0,-20deg);
+		animation-timing-function: ease-in;
+	}
+	60%{
+		transform: perspective(400px) rotate3d(0,1,0,10deg);
+		opacity: 1;
+	}
+	80%{
+		transform: perspective(400px) rotate3d(0,1,0,5deg);
+	}
+	100%{
+		transform: perspective(400px);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,91 @@
+/* 通用样式 */
+body,ul,li{padding: 0; margin: 0;}
+ul{list-style-type: none;}
+a{text-decoration: none;}
+.clearfixed:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container{
+	margin: 20px auto;
+	width: 1200px;
+}
+/* 一级菜单 */
+.nav-list{
+	background-color: #808080;
+	height: 44px;
+	
+}
+.nav-list>li{
+	float: left;
+	margin: 0 20px;
+	position: relative;
+}
+.nav-list>li>a{
+	display: block;
+	height: 43px;
+	color: #fff;
+	line-height: 42px;
+	font-size: 18px;
+	padding: 0 12px;
+	border: 1px solid #808080;
+	border-bottom: none;
+	position: relative;
+	z-index: 9;
+}
+.nav-list>li>a:hover{
+	background: #fff;
+	color: #bc0303;
+	border: 1px solid #c9c9c9;
+	border-bottom: none;
+}
+/* 二级菜单 */
+.item{
+	width: 160px;
+	position: absolute;
+	top: 42px;
+	z-index: 1;
+	display: none;
+}
+.item .item-list{
+	background-color: #FFFFFF;
+	border: 1px solid #c9c9c9;
+	padding: 2px 0 10px 12px;
+}
+.item .item-list>li{
+	line-height: 40px;
+	margin-right: 25px;
+	text-align: center;
+	float: left;
+}
+.item .item-list>li>a{
+	height: 40px;
+}
+.item .item-list>li>a:hover{
+	color: #6e6e6e;
+	text-decoration: underline;
+}
+
+/* js控制器 */
+/* .nav-list .show .item{
+	display: block;
+}
+.nav-list>.show>a{
+	background: #fff;
+	color: #bc0303;
+	border: 1px solid #c9c9c9;
+	border-bottom: none;
+} */
+
+/* 用css实现二级下拉菜单，不需要js */
+.nav-list li:hover .item{
+	display: block;
+}
+.nav-list>li:hover>a{
+	background: #fff;
+	color: #bc0303;
+	border: 1px solid #c9c9c9;
+	border-bottom: none;
+}

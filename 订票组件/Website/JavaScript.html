@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JavaScript</title>
+	</head>
+	<body>
+		<!-- <button onclick="console.log('Hello World');"> 
+			打印消息
+		</button>
+		
+		<h1 id="demo" title="123">cao</h1>
+		
+		<button type="button" onclick="changeContent()">更改内容</button> -->
+		
+		<script type="text/javascript">
+				// var num1 = 15;
+				// var num2 = '13';
+				// var result = num1+num2;
+				// 
+				// document.write(result);
+				// 
+				// function changeContent() {
+				// 	document.getElementById("demo").innerHTML = result;
+				// }
+				// 
+				// alert(result)
+				// 
+				// var input = prompt("请输入一个数值")
+				// console.log(isNaN(input))
+				// 
+				// var a=1;
+				// function sum(b){
+				// 	console.log(a);
+				// 	a+=2;
+				// }
+				// sum(a);
+				// console.log(a);
+				
+			//计算克莱托指数以及判断体型
+			// var input1=prompt("输入你的身高(单位'米')");
+			// var height=input1*input1;
+			// var input2=prompt("输入你的体重(单位'千克')");
+			// var weight=input2;
+			// var clyto_index=weight/height;
+			// document.write('你的克莱托指数是'+clyto_index.toFixed(2));
+			// document.write('<br />');
+			// if(clyto_index<20){
+			// 	document.write('瘦');
+			// }else if(clyto_index<=25){
+			// 	document.write('正常');
+			// }else{
+			// 	document.write('胖');
+			// }
+	
+			//猜数字
+			// var r =parseInt(Math.random()*100)
+			// do{
+			// 	var input=prompt("请输入一个数");
+			// 	if(input>r){
+			// 		alert('大了')
+			// 	}else if(input<r){
+			// 		alert('小了')
+			// 	}
+			// }while (input != r);
+			// alert('猜对了')
+			
+			// var i=0; 
+			// while(i<5){
+			// 	i++;
+			// 	if(i==3){
+			// 		continue;
+			// 	}
+			// 	console.log("*");
+			// } 
+			// var ul= document.getElementById('demo').removeAttribute('title');
+			// ul.setAttributeNode("name", 456);
+			// console.log(ul)
+			
+			// var year = parseInt(prompt('请输入年份'));
+			// if(year%4==0 && year%100 != 0){
+			// 	alert(year+"年是闰年")
+			// }else if(year%400 == 0){
+			// 	alert(year+"年是闰年")
+			// }else{
+			// 	alert(year+"年不是闰年")
+			// }
+			
+			
+			var arr=[];
+			var score=0;
+			var fail = 0;
+			for(var i=0;i<7;i++){
+				var input=parseInt(prompt('请输入你的成绩'));
+				arr[i]=input;
+				score += input;
+				if(input<60){
+					fail +=1
+				}
+			}
+			var ave = score/7
+			
+			document.write('总分是：'+score+'分<br />')
+			document.write('平均分是：'+ave.toFixed(2)+'分<br />')
+			document.write('不及格个数是：'+fail+'个<br />')
+		</script>	
+	</body>
+</html>

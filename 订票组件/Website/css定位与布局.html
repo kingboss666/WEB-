@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.capsule{
+				width: 50px;
+				height: 50px;
+				border: 2px solid #a1a1a1;
+				background: #ddd;
+				border-radius: 25px;
+				box-shadow:  5px 5px 5px #888;
+			}
+			.wdrp{
+				width:8em;
+				border: 1px solid #333;
+				word-wrap:break-word;
+				display: inline-block;
+			}
+			.text{
+				display: inline-block;
+			}
+			.main{
+				width: 300px;
+				height: 300px;
+				background-color: black;
+				margin: 100px auto;
+				position: relative;
+				
+			}
+			.box1{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				text-align: left;
+				top: 0; 
+				left: 0;
+			}
+			.box2{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				text-align: left;
+				top: 0;
+				right: 0;
+			}
+			.box3{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				text-align: left;
+				bottom: 0; 
+				left: 0;
+			}
+			.box4{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+				text-align: left;
+				bottom: 0;
+				right:0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="capsule"></div>
+		<div class="text">
+		<p class="wdrp"><a href="#">这是最长的英文单词，
+		pneumonoultramicroscopicsilicovolcanoconiosis.</a></p>
+		</div>
+		<div class="main">
+			<div class="box1">1</div>
+			<div class="box2">2</div>
+			<div class="box3">3</div>
+			<div class="box4">4</div>
+		</div>
+		
+	</body>
+</html>

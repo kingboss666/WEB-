@@ -1,0 +1,42 @@
+body,ul,li,p{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.clearfix:after,.clearfix:before{
+	display: table;
+	content: "";
+}
+.clearfix:after{
+	clear: both;
+}
+
+.warpper{
+	text-align: center;
+	min-width: 1008px;
+}
+.list{
+	display: inline-block;
+}
+
+.list li{
+	float: left;
+}
+.item{
+	border: 1px solid #eee;
+	padding: 5px;
+	border-radius: 7px;
+	margin: 5px;
+}
+.item img{
+	width: 230px;
+}
+
+.item p{
+	margin: 10px auto;
+	width: 230px;
+	/* 单行打点 */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

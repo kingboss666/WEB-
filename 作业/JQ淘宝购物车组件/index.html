@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>DOM使用</title>
+		<style type="text/css">
+			.warpper {
+				height: 50px;
+				font-size: 0;
+				display: flex;
+			}
+
+			.prve {
+				font-size: 20px;
+				width: 50px;
+				height: 50px;
+				background: #ededed;
+				text-align: center;
+				line-height: 50px;
+				cursor: pointer;
+				user-select: none;
+			}
+
+			input {
+				padding: 10px;
+				height: 50px;
+				width: 100px;
+				box-sizing: border-box;
+				font-size: 22px;
+				outline: none;
+			}
+
+			.next {
+				user-select: none;
+				cursor: pointer;
+				font-size: 20px;
+				text-align: center;
+				line-height: 50px;
+				width: 50px;
+				height: 50px;
+				background: #ededed;
+			}
+
+			.active {
+				color: #EDEDED;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warpper">
+			<div class="prve">-</div>
+			<input type="text" value="1" class="text" />
+			<div class="next">+</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var value = 1;
+		var max = 20;
+
+		function notIn() {
+			// 最小/大值时颜色
+			if (value <= 1) {
+				$('.prve').addClass('active');
+				$('.next').removeClass('active');
+			} else if (value >= max) {
+				$('.next').addClass('active');
+			} else {
+				$('.active').removeClass('active');
+			}
+		}
+		notIn();
+
+		$('.text').on('input', function() {
+			cout(0);
+			notIn();
+		});
+
+		function cout(num) {
+			// 计算判断函数
+			value = parseInt($('.text').val()) + num;
+			if (value <= 1 || isNaN(value)) {
+				value = 1;
+			} else if (value >= max) {
+				value = max;
+			}
+			$('input').val(value);
+		}
+
+		$('.prve').add('.next').on('mousedown', function() {
+			var _this = this;
+			move(this);
+			timer = setInterval(function(){
+				// console.log('运行');
+				move(_this);
+			}, 150);
+		}).mouseup(function() {
+			clearInterval(timer);
+			// console.log('暂停');
+		});
+
+		function move(_this) {
+			// 点击执行函数
+			if ($(_this).hasClass('prve')) {
+				cout(-1);
+			} else {
+				cout(1);
+			}
+			notIn();
+		}
+	</script>
+</html>

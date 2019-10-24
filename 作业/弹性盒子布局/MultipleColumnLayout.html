@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>两列三列布局</title>
+		<style type="text/css">
+			body,ul,li{list-style-type: none; padding: 0;margin: 0;}
+			nav{
+				display: none;
+				background: #ccc;
+				justify-content: flex-end;
+			}
+			nav ul li{
+				display: inline-block;
+				padding: 5px 30px;
+				margin: 10px 0;
+				border-left:1px solid rgba(0,0,0,0.2);
+				text-align: center;
+			}
+			
+			@media screen and (max-width:800px) {
+				nav{
+					display: flex;
+				}
+				.left{
+					display: none;
+				}
+			}
+			
+			.wrapper{
+				display: flex;
+				border: 1px solid #ccc;
+				min-width: 600px;
+			}
+			.left{
+				width: 200px;
+				height: 200px;
+				background: orange;
+			}
+			.left ul li{
+				box-sizing: border-box;
+				display: block;
+				width: 200px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background: #ccc;
+				border-bottom: 1px solid orange;
+			}
+			.center{
+				background: pink;
+				flex-grow: 1;
+				width: 100px;
+			}
+			
+			.right{
+				width: 200px;
+				height: 200px;
+				background: purple;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</nav>
+		<div class="wrapper">
+			<div class="left">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+			<div class="center">我是center我是center我是center我是center我是center我是center我是center我是center我是center我是center我是center我是center</div>
+			<div class="right">我是right</div>
+		</div>
+	</body>
+</html>

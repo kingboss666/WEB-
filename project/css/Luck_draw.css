@@ -1,0 +1,15 @@
+body{ margin: 0; padding: 0;}
+td{
+	width: 150px;
+	height: 100px;
+	font-size: 50px;
+	background-color:#666 ;
+	text-align: center;
+}
+.select{
+	background-color:#F60 ;
+}
+.start{
+	cursor: pointer;
+	background-color:#F60 ;
+}

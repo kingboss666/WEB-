@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>常用网站</title>
+		<style type="text/css">
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <h1>常用网站</h1>
+		<p><img src="images/ifeng.png" /><a href="front.html">ifeng</a></p>
+		<p><img src="images/baidu.png" /><a href="http://www.baidu.com">百度</a></p>
+		<p><img src="images/sina.png" /><a href="https://www.sina.com.cn/">新浪</a></p>
+		<p><img src="images/sohu.png" /><a href="http://www.sohu.com/">搜狐</a></p>
+		<audio src="audio/五音Jw%20-%20明月天涯.mp3" controls="controls">你的浏览器不支持HTML5:audio</audio>
+		<video id="myVideo" width="420px">
+			<source src="audio/修正版大侦探皮卡丘.Pokemon.Detective.Pikachu.2019.HD720P.X264.AAC.English.CHS-ENG.Mp4Ba.mp4" type="video/mp4">
+			你的浏览器不支持HTML5:video
+		</video>
+		<button onclick="playPause()">播放/暂停</button> -->
+		
+		<canvas id="myCanvas" width="860" height="480">
+			你的浏览器不支持画布
+		</canvas>
+		
+		<script type="text/javascript">
+		var v=document.getElementById('myVideo');
+		function playPause(){
+			if(v.paused)
+				v.play();
+			else
+				v.pause();
+		}
+		function draw(event){
+			var canvas = document.getElementById('myCanvas');
+			var pen = canvas.getContext('2d');
+			pen.moveTo(50,50);
+			pen.lineTo(300,300);
+			pen.lineWidth = 5;
+			pen.strokeStyle = 'red';
+			pen.stroke();
+		}
+		window.onload = draw;
+		</script>
+	</body>
+</html>

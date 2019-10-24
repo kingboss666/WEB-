@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>图片上升</title>
+		<style type="text/css">
+			/* 图片上升 */
+			ul {
+				font-size: 0;
+				display: flex;
+				width: 80%;
+				min-width: 600px;
+				margin: 0 auto;
+				padding: 0;
+			}
+
+			ul li {
+				position: relative;
+				display: inline-block;
+				list-style: none;
+				width: 200px;
+				border: 2px solid purple;
+				border-radius: 20px;
+				overflow: hidden;
+				margin: 0 10px;
+				background: rgba(0, 0, 0, 0.5);
+			}
+
+			ul li img {
+				width: 100%;
+				border-radius: 18px;
+				transform: translateY(100%);
+				transition: transform 0.8s ease;
+			}
+
+
+			.init img {
+				transform: translateY(0);
+			}
+
+			ul li:nth-child(2) img {
+				transition-delay: 0.2s;
+			}
+
+			ul li:nth-child(3) img {
+				transition-delay: 0.3s;
+			}
+
+			ul li:nth-child(4) img {
+				transition-delay: 0.4s;
+			}
+
+			ul li:nth-child(5) img {
+				transition-delay: 0.5s;
+			}
+
+			.cover {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				height: 45px;
+				overflow: hidden;
+			}
+
+			/* li:hover .cover {
+				transform: translateY(0);
+			} */
+
+			.cover .des {
+				text-align: center;
+				font-size: 14px;
+				color: #fff;
+				padding: 0 10px;
+				background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+				height: 45px;
+				transform: translateY(100%);
+				/* transition: transform 0.2s linear; */
+			}
+
+			/*描述信息初始位置*/
+			li .cover .in-top,
+			li .cover .out-top {
+				transform: translate(0, -100%);
+			}
+
+			li .cover .in-right,
+			li .cover .out-right {
+				transform: translate(100%, 0);
+			}
+
+			li .cover .in-bottom,
+			li .cover .out-bottom {
+				transform: translate(0, 100%);
+			}
+
+			li .cover .in-left,
+			li .cover .out-left {
+				transform: translate(-100%, 0);
+			}
+
+			/*描述信息进入动画*/
+			li .cover .in-top,
+			li .cover .in-right,
+			li .cover .in-bottom,
+			li .cover .in-left {
+				animation: inDis 0.3s linear forwards;
+			}
+
+			@keyframes inDis {
+				100% {
+					transform: translate(0);
+				}
+			}
+
+			/*描述信息退出动画*/
+			li .cover .out-top {
+				animation: inTop 0.3s linear forwards;
+			}
+
+			@keyframes inTop {
+				/*上*/
+				0% {
+					transform: translate(0);
+				}
+
+				100% {
+					transform: translate(0, -100%);
+				}
+			}
+
+			li .cover .out-right {
+				animation: inRight 0.3s linear forwards;
+			}
+
+			@keyframes inRight {
+				/*右*/
+				0% {
+					transform: translate(0);
+				}
+
+				100% {
+					transform: translate(100%, 0);
+				}
+			}
+
+			li .cover .out-bottom {
+				animation: inBottom 0.3s linear forwards;
+			}
+
+			@keyframes inBottom {
+				/*下*/
+				0% {
+					transform: translate(0);
+				}
+
+				100% {
+					transform: translate(0, 100%);
+				}
+			}
+
+			li .cover .out-left {
+				animation: inLeft 0.3s linear forwards;
+			}
+
+			@keyframes inLeft {
+				/*左*/
+				0% {
+					transform: translate(0);
+				}
+
+				100% {
+					transform: translate(-100%, 0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 图片上升 -->
+		<ul>
+			<li>
+				<img src="images/1.jpg" alt="">
+				<div class="cover">
+					<div class="des">描述描述描述描述描述描述描述描述描述描述</div>
+				</div>
+			</li>
+			<li>
+				<img src="images/2.jpg" alt="">
+				<div class="cover">
+					<div class="des">描述描述描述描述描述描述描述描述描述描述</div>
+				</div>
+			</li>
+			<li>
+				<img src="images/3.jpg" alt="">
+				<div class="cover">
+					<div class="des">描述描述描述描述描述描述描述描述描述描述</div>
+				</div>
+			</li>
+			<li>
+				<img src="images/4.jpg" alt="">
+				<div class="cover">
+					<div class="des">描述描述描述描述描述描述描述描述描述描述</div>
+				</div>
+			</li>
+			<li>
+				<img src="images/5.jpg" alt="">
+				<div class="cover">
+					<div class="des">描述描述描述描述描述描述描述描述描述描述</div>
+				</div>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		//图片上升
+		var oUl = document.getElementsByTagName("ul")[0];
+		window.onload = function() {
+			oUl.className = "init";
+		}
+
+		//描述信息随鼠标进入方向而动画效果不同
+		var oLi = document.getElementsByTagName("li");
+		var len = oLi.length;
+		for (var i = 0; i < len; i++) {
+			oLi[i].onmouseenter = function(e) {
+			//鼠标进入
+				//计算进入值
+				var dir = direction(e, this);
+				//取对应div dom
+				var des = this.getElementsByClassName("des")[0];
+				//每次进入都讲上次留下的class重置
+				des.className = "des";
+				//通过已转换了的进入角度,分别加入对应的class
+				switch (dir) {
+					case 0:
+						des.classList.add("in-top");
+						break;
+					case 1:
+						des.classList.add("in-right");
+						break;
+					case 2:
+						des.classList.add("in-bottom");
+						break;
+					case 3:
+						des.classList.add("in-left");
+						break;
+				}
+			}
+			oLi[i].onmouseleave = function(e) {
+			//鼠标离开
+				//计算离开值
+				var dir = direction(e, this);
+				var des = this.getElementsByClassName("des")[0];
+				//每次进入都讲上次留下的class重置
+				des.className = "des";
+				//通过已转换了的离开角度,分别加入对应的class
+				switch (dir) {
+					case 0:
+						des.classList.add("out-top");
+						break;
+					case 1:
+						des.classList.add("out-right");
+						break;
+					case 2:
+						des.classList.add("out-bottom");
+						break;
+					case 3:
+						des.classList.add("out-left");
+						break;
+				}
+			}
+		}
+
+		function direction(e, ele) {
+		//计算鼠标进入或离开方向角度,并最终装换成0123等数字;
+			var w = ele.offsetWidth;
+			var h = ele.offsetHeight;
+			//将原点改到宽和高的居中点,并将长方形的长按比例变得和宽一样
+			var x = (e.offsetX - w / 2) * (w > h ? h / w : 1);
+			var y = (e.offsetY - h / 2) * (w < h ? w / h : 1);;
+			//计算值
+			return d = (Math.round((Math.atan2(y, x) * (180 / Math.PI) + 180) / 90) + 3) % 4;
+		}
+	</script>
+</html>

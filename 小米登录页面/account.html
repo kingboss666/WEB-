@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>小米登录页</title>
+		<link rel="stylesheet" type="text/css" href="css/account.css"/>
+	</head>
+	<body>
+		<div class="logo">
+			<div class="container">
+				<a href="http://www.mi.com">小米网</a>
+			</div>
+		</div>
+		
+		<div class="panel">
+			<div class="container clearfix">
+				<div class="layout">
+					<div class="tabs">
+						<a href="###" class="select" id="login">帐号登录</a>
+						<span></span>
+						<a href="###" id="register">注册账号</a>
+					</div>
+					<div class="account">
+						<form action="#">
+							<input type="text" placeholder="帐号"/>
+							<input type="password" placeholder="密码"/>
+							<input type="password" placeholder="重复密码" id="pas2" style="display: none;"/>
+							<input type="submit" id="btn" value="登录"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var login = document.getElementById("login");
+			var register = document.getElementById("register");
+			var pas2 = document.getElementById("pas2");
+			var btn = document.getElementById("btn");
+			login.onclick = function(e){
+				pas2.style.display = "none";
+				btn.value = "登录";
+				login.className = 'select';
+				register.className = "";
+			}
+			register.onclick = function(e){
+				pas2.style.display = "block";
+				btn.value = "注册";
+				login.className = '';
+				register.className = "select";
+			}
+			
+			var panel = document.getElementsByClassName("panel")[0];
+			panel.onclick = function(){
+				window.open("https://www.mi.com");
+			}
+			
+			var layout = document.getElementsByClassName("layout")[0];
+			layout.onclick=function(e){
+				event.stopPropagation();
+			}
+		</script>
+	</body>
+</html>

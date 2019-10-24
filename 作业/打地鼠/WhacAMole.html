@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>打地鼠</title>
+		<link rel="stylesheet" type="text/css" href="css/WhacAMole.css"/>
+	</head>
+	<body>
+		<div id="scene">
+			<img src="images/2.png" id="hammer">
+			<div id="gmaeNum">0</div>
+			<div id="countDown">60<p>s</p></div>
+			<div id="hollow1"><img src="images/4.png" alt=""></div>
+			<div id="hollow2"><img src="images/4.png" alt=""></div>
+			<div id="hollow3"><img src="images/4.png" alt=""></div>
+			<div id="hollow4"><img src="images/4.png" alt=""></div>
+			<div id="hollow5"><img src="images/4.png" alt=""></div>
+			<div id="hollow6"><img src="images/4.png" alt=""></div>
+			<div id="hollow7"><img src="images/4.png" alt=""></div>
+			<div id="hollow8"><img src="images/4.png" alt=""></div>
+			<div id="hollow9"><img src="images/4.png" alt=""></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var scene = document.getElementById("scene");
+		var hammer = document.getElementById("hammer");
+		
+		//鼠标事件
+		scene.onmousemove = function(e){
+			//鼠标移动
+			var x = e.clientX;
+			var y = e.clientY;
+			hammer.style.left = x + "px";
+			hammer.style.top = y + "px";
+		}
+		scene.onmousedown = function(){
+			//鼠标按下
+			hammer.src = "images/3.png"
+		}
+		scene.onmouseup = function(){
+			//鼠标弹起
+			hammer.src = "images/2.png"
+		}
+		
+		scene.onclick = function(e){
+			//开始计时
+			if(logic == true){
+				sil = setInterval(timer,1000);
+			}
+			logic = false;
+			//鼠标点击
+			var x = e.clientX;
+			var y = e.clientY;
+			//碰撞检测
+			var x1 = mouseAry[mouseID].offsetLeft + hollowAry[mouseID].offsetLeft;
+			var x2 = x1 + mouseAry[mouseID].offsetWidth;
+			var y1 = mouseAry[mouseID].offsetTop + hollowAry[mouseID].offsetTop;
+			var y2 = hollowAry[mouseID].offsetTop + hollowAry[mouseID].offsetHeight;
+			if(x>x1 && x<x2 && y>y1 & y<y2){
+				mouseAry[mouseID].src = "images/5.png";
+				if(beat){
+					//第一次击打成功加分
+					num += 100; 
+				}
+				beat = false;
+				gameNum.innerHTML = num; 
+			}
+		}
+		
+		//分数 时间
+		var gameNum = document.getElementById("gmaeNum");
+		var countDown = document.getElementById("countDown");
+		
+		var mins = 60; //时间
+		var num = 0; //分数
+		var logic = true;
+		var beat = true;
+		var sil = null;
+		
+		function timer(){
+			//时间结束 显示分数 初始化
+			mins--;
+			countDown.innerHTML = mins + "<p>s</p>";
+			if(mins < 0){
+				clearInterval(sil);
+				alert("游戏结束你的分数是"+ num);
+				num = 0;
+				mins = 60;
+				logic = true;
+				waitTime = 0;
+				nowTop = initTop;
+				gameNum.innerHTML = num; 
+				countDown.innerHTML = mins + "<p>s</p>";
+				mouseAry[mouseID].style.top = nowTop + "px";
+				mouseID = parseInt(Math.random()*9);
+				mouseAry[mouseID].src = "images/4.png";
+			}
+		}
+		
+		//老鼠相关
+		var mouseID = 0;
+		var hollowAry = [];
+		var mouseAry = [];
+		for(var i = 0;i < 9;i++){
+			//获取老鼠
+			hollowAry[i] = document.getElementById("hollow"+(i+1));
+			mouseAry[i] = hollowAry[i].getElementsByTagName("img")[0];
+		}
+		
+		var mouseLoop = null; //计时器
+		var LoopTime = 30; //计时器间隔时间
+		var initTop = 102; //起始位置
+		var EndTop = 0; //最终位置 
+		var nowTop = initTop; //实时位置
+		var waitTime = 0; //等待时间
+		var waitMaxTime = 1000; //最大时间
+		
+		var a = setInterval(function(){
+			//每两秒产生一只老鼠
+			if(mouseLoop == null){
+				mouseID = parseInt(Math.random()*9);
+				//老鼠被打后第二次探头图片变回去
+				mouseAry[mouseID].src = "images/4.png"; 
+				beat = true;
+				nowTop = initTop;
+				waitTime = 0;
+				mouseLoop = setInterval(mouseShow,LoopTime);
+			}
+		},2000);
+		
+		function mouseShow(){
+			//老鼠出现
+			if(nowTop > EndTop){
+				nowTop -= 4;
+			}
+			if(nowTop < EndTop){
+				nowTop = EndTop;
+			}
+			if(nowTop == EndTop){
+				if(waitTime <= waitMaxTime){
+					waitTime += LoopTime;
+				}
+				if(waitTime >= waitMaxTime){
+					nowTop = initTop;
+					clearInterval(mouseLoop);
+					mouseLoop = null;
+				}
+			}
+			mouseAry[mouseID].style.top = nowTop + "px";
+		}
+	</script>
+</html>

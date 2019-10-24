@@ -1,0 +1,84 @@
+body,
+ul,
+li,
+a {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+/* 舞台 */
+.warpper {
+	position: relative;
+	width: 520px;
+	height: 280px;
+	margin: 100px auto;
+	font-size: 0;
+	overflow: hidden;
+}
+
+/* 图片 */
+.img-box {
+	position: absolute;
+	height: 100%;
+	width: 3120px;
+}
+
+.img-box li {
+	display: inline-block;
+}
+
+/* 左右按钮 */
+.btn {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+.btn a {
+	position: absolute;
+	top: -17px;
+	width: 15px;
+	height: 24px;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	font-size: 20px;
+}
+
+.btn .prevBtn {
+	left: 0;
+}
+
+.btn .nextBtn {
+	right: 0;
+}
+
+/* 底部按钮 */
+.order {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+.order ul {
+	display: inline-block;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 7px;
+}
+
+.order ul li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #fff;
+	margin: 2px;
+	cursor: pointer;
+}
+
+.order ul .active {
+	background: #ff6700;
+}

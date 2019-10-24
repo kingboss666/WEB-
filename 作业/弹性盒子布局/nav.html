@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<title>导航栏弹性盒子</title>
+		<style type="text/css">
+			body,ul,li{
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+			nav{
+				height: 50px;
+			}
+			ul{
+				display: flex;
+				width: 600px;
+				background: #ccc;
+			}
+			li{
+				flex-grow: 1;
+				display: inline-block;
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				color: #fff;
+				text-align: center;
+				background: 
+					linear-gradient(to right,#888 ,transparent 40%),
+					linear-gradient(to right,transparent 60%,#888);
+				transition: all 0.2s;
+			}
+			li:hover{
+				font-size: 18px;
+				box-shadow:0px 0px 10px 5px #888888;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li>首页</li>
+				<li>课程</li>
+				<li>老师</li>
+				<li>关于我们</li>
+				<li>学员风采</li>
+			</ul>
+		</nav>
+	</body>
+</html>

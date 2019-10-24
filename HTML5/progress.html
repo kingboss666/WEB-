@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>进度条</title>
+		<style type="text/css">
+			span {
+				display: none;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<progress id="pro" max=100 min=0 value=0></progress>
+		<span>完成</span>
+	</body>
+	
+	<script type="text/javascript">
+		var pro = document.getElementById("pro");
+		var span = document.getElementsByTagName("span")[0];
+		var sil = setInterval(function() {
+			if (pro.value == pro.max) {
+				clearInterval(sil);
+				span.style.display = "block";
+				return;
+			}
+			pro.value += 10;
+		}, 1000);
+	</script>
+</html>

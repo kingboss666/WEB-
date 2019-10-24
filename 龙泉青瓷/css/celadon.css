@@ -1,0 +1,307 @@
+body,ul,li,a,h1,h2,h3,p{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.container{
+	width: 1100px;
+	margin: 0 auto;
+}
+.clearfix:before,.clearfix:after{
+	content: "";
+	display: table;
+}
+.clearfix:after{
+	clear: both;
+}
+
+.top{
+	position: fixed;
+	width:100%;
+	height: 60px;
+	z-index: 1002;
+	background-color: rgb(247, 247, 247)
+}
+
+.top .nav{
+	width: 100%;
+	height: 100%;
+	margin:0 auto;
+}
+
+.top .nav img{
+	width: 50px;
+	height: 50px;
+	margin-top: 5px;
+	float: left;
+}
+
+.top .nav .login{
+	display: inline-block;
+	height: 100%;
+	color: #333;
+	font-size: 20px;
+	line-height: 60px;
+	padding: 0 20px;
+}
+.nav-left{
+	float: left;
+}
+
+.nav-right{
+	float: right;
+}
+.nav-right li{
+	display: inline-block;
+	position: relative;
+	transition: all 0.6s linear;
+}
+.nav-right li:hover{
+	background-color: #333;
+}
+.nav-right li:hover a{
+	color: #fff;
+}
+
+.nav-right li a{
+	padding: 0 20px;
+	line-height: 60px;
+	color: #333;
+	font-size: 20px;
+}
+
+/* 主要内容 */
+.content{
+	padding-top: 70px;
+	background-color: #f1fcf4;
+}
+
+/* 简介 */
+.brief{
+	width: 100%;
+	margin-bottom: 15px;
+}
+/* 简介头部 */
+.brief .br-top{
+	height: 41px;
+	width: 100%;
+	background: #979797;
+	position: relative;
+}
+.title{
+	height: 41px;
+	line-height: 41px;
+	color: #f9f9f9;
+	font-family: '华文行楷','mic';
+	font-size: 24px;
+}
+/* 小图标 */
+.thumbtack{
+	position: absolute;
+	right: 33px;
+	top: -5px;
+}
+
+/* 简介内容 */
+.brief .br-box{
+	width: 100%;
+	height: 268px;
+	background-image: url(../images/br-bg.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.brief .br-box .br-title{
+	font-family: '华文楷体';
+	padding: 16px 0 20px 36px;
+	font-size: 36px;
+}
+.brief .br-box  .br-content{
+	font-family: '黑体';
+	padding: 16px 0 20px 36px;
+	font-size: 20px;
+	text-indent: 2em;
+	line-height: 30px;
+}
+
+/* 发展历程 */
+.course{
+	width: 100%;
+	margin-bottom: 15px;
+}
+/* 发展历程头部 */
+.course .cou-top{
+	height: 41px;
+	width: 100%;
+	background: #303030;
+	position: relative;
+}
+/* 发展历程内容 */
+.course .cou-box{
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background-image: url(../images/course.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.course .cou-box img{
+	position: absolute;
+	top: 15px;
+	left: 10px;
+}
+.course .cou-box .text-box{
+	margin-left: 300px;
+	padding-top: 10px;
+}
+.course .cou-box .text-box p{
+	padding: 10px;
+	color: #111;
+	font-size: 20px;
+	font-weight: 700;
+}
+/* 青瓷展示 */
+.exhibition{
+	width: 48%;
+	float: left;
+}
+/* 青瓷展示头部 */
+.exhibition .ex-top{
+	height: 41px;
+	width: 100%;
+	background: #303030;
+	position: relative;
+}
+/* 青瓷展示轮播图 */
+.exhibition .ex-box{
+	width: 100%;
+}
+.exhibition .ex-box ul li a{
+	display: none;
+	width: 100%;
+}
+.exhibition .ex-box ul li .active{
+	display: block;
+}
+.exhibition .ex-box ul li a img{
+	width: 100%;
+}
+
+/* 青瓷动态 */
+.dynamic{
+	width: 48%;
+	float: right;
+}
+/* 青瓷动态头部 */
+.dynamic .dy-top{
+	height: 41px;
+	width: 100%;
+	background: #303030;
+	position: relative;
+}
+/* 青瓷动态内容 */
+.dynamic .dy-box{
+	width: 100%;
+	height: 528px;
+	background-image: url("../images/dy-bg.jpg");
+	background-size: 100% 100%;
+}
+.dynamic .dy-box .dy-list{
+	height: 100%;
+	font-size: 0;
+}
+.dynamic .dy-box .dy-list .dy-item{
+	display: block;
+	height: 10%;
+	font-size: 18px;
+	text-indent: 2em;
+	line-height: 53px;
+}
+.dynamic .dy-box .dy-list .dy-item a{
+	color: #555;
+}
+.dynamic .dy-box .dy-list .dy-item a:hover{
+	color: #000;
+}
+/* 精品展示 */
+.study{
+	padding-top: 584px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+/* 精品展示头部 */
+.study .st-top{
+	height: 41px;
+	width: 100%;
+	background: #303030;
+	position: relative;
+}
+/* 精品展示内容 */
+.study .st-box{
+	width: 100%;
+	height: 340px;
+	background: #fff;
+	background-image: url("../images/st-bg.jpg");
+	background-size: 100% 100%;
+	font-size: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.study .st-box .img-box{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -125px;
+	height: 250px;
+	width: 3570px;
+}
+.study .st-box .img-box li{
+	display: inline-block;
+	margin: 0 20px;
+}
+.study .st-box .img-box li a img{
+	height: 250px;
+}
+
+/* 页尾 */
+.footer{
+	background: #e8e8e8;
+	height: 60px;
+}
+.footer ul{
+	width: 500px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.footer ul li{
+	display: inline-block;
+	width: 20%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.footer ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	color: #000;
+}
+
+#totop a{
+	width: 84px;
+	height: 77px;
+	position: fixed;
+	right: 0px;
+	bottom: 50px;
+	z-index: 999;
+	color: #ccc;
+	transition: all 0.3s;
+}
+#totop a:hover{
+	color: #000;
+}
+#totop a i{
+	font-size: 50px;
+}

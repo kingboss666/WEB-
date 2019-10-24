@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>刮刮乐</title>
+		<style type="text/css">
+			html,
+			body {
+				height: 99%;
+				width: 99%;
+				overflow: hidden;
+			}
+			.container {
+				width: 400px;
+				margin: 200px auto;
+			}
+			#myCanvas {
+				background-repeat: no-repeat;
+				background-size: 300px 300px;
+				background-position: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="myCanvas" width="400" height="400"></canvas>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext('2d');
+		var w = myCanvas.width;
+		var h = myCanvas.height;
+		var img = new Image();
+		var pos = {};
+
+		//页面第一次加载
+		function init() {
+			//背景图片随机加载
+			var random = Math.random();
+			if (random < 0.2) {
+				img.src = './images/2.jpg';
+			} else {
+				img.src = './images/1.jpg';
+			}
+			myCanvas.style.backgroundImage = 'url(' + img.src + ')';
+			//加载蒙层
+			ctx.fillStyle = "#aaa";
+			ctx.fillRect(0, 0, w, h);
+			ctx.globalCompositeOperation = 'destination-out'
+		}
+		init();
+
+		//图片加载完成后开始才能擦除
+		img.onload = function() {
+			document.body.addEventListener('mousedown', downFun);
+		}
+
+		//鼠标按下事件
+		function downFun(e) {
+			//设置线连接起点
+			pos.x = e.clientX - myCanvas.offsetLeft;
+			pos.y = e.clientY - myCanvas.offsetTop;
+			//每次点击都能擦一下
+			ctx.beginPath();
+			ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+			ctx.fill();
+			//鼠标移动和弹起
+			myCanvas.addEventListener('mousemove', moveFun);
+			document.body.addEventListener('mouseup', upFun);
+		}
+
+		//鼠标移动事件
+		function moveFun(e) {
+			var x = e.clientX - myCanvas.offsetLeft;
+			var y = e.clientY - myCanvas.offsetTop;
+			//优化擦除效果,使快速移动无断点效果
+			ctx.beginPath();
+			ctx.moveTo(pos.x, pos.y);
+			ctx.lineTo(x, y);
+			ctx.lineWidth = '40';
+			ctx.lineCap = 'round';
+			ctx.stroke()
+			////重置线连接起点
+			pos.x = x;
+			pos.y = y;
+		}
+
+		//鼠标弹起事件
+		function upFun() {
+			myCanvas.removeEventListener('mousemove', moveFun);
+			document.body.removeEventListener('mouseup', upFun);
+			dataFun();
+		}
+
+		//判断用户刮了多少
+		function dataFun() {
+			var dataNum = ctx.getImageData(0, 0, w, h);
+			var num = 0;
+			for (var i = 3; i < dataNum.data.length; i += 4) {
+				//判断每个单位的透明度
+				if (dataNum.data[i] == 0) {
+					num++;
+				}
+			}
+			//如果大于70%的地方被刮了就全部显示
+			if (num >= w * h * 0.7) {
+				ctx.clearRect(0, 0, w, h);
+			}
+		}
+	</script>
+</html>

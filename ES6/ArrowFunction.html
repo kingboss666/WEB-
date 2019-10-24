@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>箭头函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let fn = (a,b) => console.log(a+b);
+			fn(1,2);
+			
+			let arr = [1,2,3];
+			console.log(arr.map(x => x * x));
+			
+			// this指向
+			let obj = {
+				init: function(){
+					let thas = this;
+					document.addEventListener('click', function(event){
+						console.log(this);
+						this.output(event.type);
+					}.bind(this));
+					
+					document.addEventListener('click', event => this.output(event.type));
+				},
+				output: function(value){
+					console.log(value);
+				}
+			}
+			obj.init();
+		</script>
+	</body>
+</html>

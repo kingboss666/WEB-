@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>自定义求和</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(sum(0.1,0.2,true,'A',"B",1,'10'));
+			
+			function sum(){
+				sum.x=0;
+				
+				for(var i=0;i<arguments.length;i++){
+					// if(isNaN(parseFloat(arguments[i])) == true){
+					// 	continue;
+					// }else{
+					// 	sum.x += parseFloat(arguments[i]) *10 ;
+					// }
+					sum.x += parseFloat(arguments[i]) || 0;
+				}
+				sum.x = sum.x.toFixed(3) * 1000 / 1000;
+				return sum.x;
+			}
+			
+			
+		</script>
+	</body>
+</html>

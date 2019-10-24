@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>分页插件</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div class="warpper"></div>
+	</body>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		$('.warpper').paging({
+			pageCount: 20, //页码
+			current: 1, //当前页数
+			cbs: function(){
+				//可以写ajax回调函数
+				console.log("888");
+			}
+		});
+	</script>
+</html>

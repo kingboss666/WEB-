@@ -1,0 +1,80 @@
+body,ul,li{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+body{
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
+	position: relative;
+	height: 100vh;
+	background: #ccc;
+	
+}
+.wrapper{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -250px; 
+	/* transform: translateY(-50%); */
+	width: 500px;
+	height: 400px;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.main{
+	width: 100%;
+	height: 100%;
+}
+.main img{
+	width: 100%;
+	height: 260px;
+}
+.content{
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	margin-top: 25px;
+	height: 50px;
+}
+
+.item,.item1{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	transition: left 0.3s;
+}
+.item:first-child{
+	/* float: left; */
+	left: 0;
+}
+.item:last-child{
+	/* float: right; */
+	left: 300px;
+}
+.item1:first-child{
+	/* float: left; */
+	left: 300px;
+}
+.item1:last-child{
+	/* float: right; */
+	left: 0;
+}
+
+#btn{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -15px;
+	margin-top: -15px;
+	height: 30px;
+	width: 30px;
+	background-image: url(../images/交互.png);
+	background-size: 300% 300%;
+	background-position: -29px -27px;
+	cursor: pointer;
+}

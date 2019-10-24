@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>三级城市联动</title>
+	</head>
+	<body>
+		<select id="province"></select>
+		<select id="city"></select>
+		<select id="district"></select>
+	</body>
+	<script src="js/region_select.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var province = document.getElementById("province");
+		var city = document.getElementById("city");
+		var district = document.getElementById("district");
+		
+		for(var i=0;i<provinceList.length;i++){
+			var option = new Option(provinceList[i].name,provinceList[i].name);
+			province.options.add(option);
+		}
+		
+		changeProvince();
+		changecity();
+		
+		province.onchange = changeProvince;
+		function changeProvince(){
+			city.options.length = 0;
+			var cityAry = provinceList[province.selectedIndex].cityList;
+			for(var i=0;i<cityAry.length;i++){
+				var option = new Option(cityAry[i].name,cityAry[i].name);
+				city.options.add(option);
+			}
+			changecity();
+		}
+		
+		city.onchange = changecity;
+		function changecity(){
+			district.options.length = 0;
+			var districtAry =provinceList[province.selectedIndex].cityList[city.selectedIndex].districtList;
+			for(i=0;i<districtAry.length;i++){
+				var option = new Option(districtAry[i],districtAry[i]);
+				district.options.add(option)
+			}
+		}
+	</script>
+</html>

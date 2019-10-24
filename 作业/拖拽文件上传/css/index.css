@@ -1,0 +1,40 @@
+.content{
+	width: 300px;
+	height: 300px;
+	background: mistyrose;
+	color: #ccc;
+	text-align: center;
+	line-height: 300px;
+}
+.tool{
+	margin-top: 20px;
+	width: 300px;
+	height: 50px;
+	position: relative;
+}
+.tool .progress{
+	width: 250px;
+	height: 50px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	overflow: hidden;
+}
+.tool .progress .val{
+	background: mediumpurple;
+	width: 0px;
+	height: 50px;
+}
+.tool .text{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: center;
+	line-height: 50px;
+}
+
+img{
+	margin-top: 20px;
+	width: 300px;
+}

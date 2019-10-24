@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>自动切换焦点图</title>
+		<link rel="stylesheet" type="text/css" href="css/Focus_map.css"/>
+	</head>
+	<body>
+		<div class="clearfixed box">
+			<div id="left">
+				<img src="images/1.jpg" alt="">
+				<img src="images/2.jpg" alt="">
+				<img src="images/3.jpg" alt="">
+			</div>
+			<img src="images/pointer.png" alt="" id="pointer">
+			<div id="right">
+				<img src="images/1.jpg" alt="" class="show">
+				<img src="images/2.jpg" alt="">
+				<img src="images/3.jpg" alt="">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var left = document.getElementById("left");
+		var leftImgAry = left.getElementsByTagName("img");
+		var rightImgAry = document.getElementById("right").getElementsByTagName("img");
+		var pointer = document.getElementById("pointer");
+		
+		var TopAry=[0,82,164];
+		var moveLoop = null;
+		var moveUp = null;
+		var sil = setInterval(automatic,2000);
+		var bool = true;
+		
+		//鼠标移动设置
+		for(var i =0; i<leftImgAry.length;i++){
+			leftImgAry[i].onmouseover = mouseOver;
+			leftImgAry[i].onmouseout = moveOut;
+			leftImgAry[i].index=i;
+		}
+		
+		function mouseOver(){
+			//暂停自动轮播
+			clearInterval(sil);
+			sil = null;
+			pointer.onmouseover = function(){
+				setTimeout(function(){
+					clearInterval(sil);
+				sil = null;
+				},1000)
+			}
+			
+			//手动查看
+			speed=4;
+			for(var i =0;i<rightImgAry.length;i++){
+				if(i == this.index){
+					//右侧图片显示
+					rightImgAry[i].className="show";
+					//pointer移动
+					Top = TopAry[i];
+					nowTop = pointer.offsetTop;
+					if(moveLoop == null){
+						moveLoop = setInterval(moveTo,10)
+					}
+				}else{
+					rightImgAry[i].className="";
+				}
+			}
+		}
+		
+		//自动轮播
+		function moveOut(){
+			for(var i =0;i<leftImgAry.length;i++){
+				if(i == this.index){
+					if(sil == null){
+						pointer.onmouseout = function(){
+							setTimeout(function(){
+								sil = setInterval(automatic,2000);
+							},1000)
+						}
+					}	
+				}
+			}
+		}
+		
+		//移动 y1 -> y2
+		var Top = 0;
+		var nowTop = 0;
+		var speed = 3;
+		function moveTo(){
+			// 从上往下移动
+			if(nowTop < Top){
+				nowTop += speed;
+				if(nowTop >= Top){
+					//结束
+					nowTop = Top;
+					clearInterval(moveLoop);
+					moveLoop = null;
+				}
+			}
+			if(nowTop > Top){
+				//从下往上移动
+				nowTop -=speed;
+				if(nowTop <= Top){
+					//结束
+					nowTop = Top;
+					clearInterval(moveLoop);
+					moveLoop = null;
+				}
+			}
+			if(nowTop == Top){
+				clearInterval(moveLoop);
+				moveLoop = null;
+			}
+			pointer.style.top = nowTop+"px";
+		}
+		
+		function automatic(){
+			//图片自动轮播
+			if(Top == 0){
+				Top +=82;
+				rightImgAry[0].className="";
+				rightImgAry[1].className="show";
+				rightImgAry[2].className="";
+				speed = 3;
+			}else if(Top == 82){
+				Top +=82;
+				rightImgAry[0].className="";
+				rightImgAry[1].className="";
+				rightImgAry[2].className="show";
+			}else{
+				Top -=164
+				rightImgAry[0].className="show";
+				rightImgAry[1].className="";
+				rightImgAry[2].className="";
+				speed = 20;
+			}
+			nowTop = pointer.offsetTop;
+			if(moveLoop == null){
+				moveLoop = setInterval(moveTo,10)
+			}
+		}
+	</script>
+</html>

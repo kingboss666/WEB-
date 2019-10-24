@@ -1,0 +1,40 @@
+body,ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.itme{
+	display: inline-block;
+	width: 30%;
+	margin: 1.6%;
+	/* cursor: pointer; */
+}
+.itme img,.active img{
+	width: 100%;
+	cursor: pointer;
+}
+
+.back{
+	display: none;
+	font-size: 200px;
+	position: absolute;
+	top: 100px;
+	right: 50px;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.active{
+	margin: 50% auto;
+	width: 98%;
+	z-index: 110;
+}
+
+.hide{
+	display: none;
+}

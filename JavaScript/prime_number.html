@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>质数</title>
+		<script type="text/javascript">
+			var ary=[];
+			
+			for (var i=0;i<10000;i++){
+				if(prime(i)){
+					ary.push(i);
+				}
+			}
+			
+			console.log(ary);
+			
+			function prime(num){
+				if(num <= 1 ){
+					return false;
+				}else{
+					for(var j = 2;j < num ;j++){
+					// console.log(j)
+						if(num % j == 0){
+							return false;
+						}
+					}
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

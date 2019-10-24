@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3选项卡</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+		<style type="text/css">
+			body,ul,li,a{
+				padding: 0;
+				margin: 0;
+				text-decoration: none;
+				list-style: none;
+			}
+			.wrapper{
+				width: 600px;
+				margin: 0 auto;
+				font-size: 0px;
+				background: #ccc;
+			}
+			.wrapper input{
+				display: none;
+			}
+			.title ul li{
+				width: 200px;
+				height: 50px;
+				display: inline-block;
+				line-height: 50px;
+				text-align: center;
+				font-size: 20px;
+			}
+			.title ul li label{
+				width: 200px;
+				height: 50px;
+				display: inline-block;
+			}
+			.main{
+				background-color: #f7f7f7;
+			}
+			.main ul{
+				display: none;
+				padding: 20px 0;
+			}
+			.main ul li{
+				margin: 10px 50px;
+			}
+			.main ul li a{
+				font-size: 14px;
+				color: #666;
+			}
+			#hot:checked ~ .main .hot-news,
+			#home:checked ~ .main .home-news,
+			#international:checked ~ .main .international-news{
+				display: block;
+			}
+			#hot:checked ~ .title .hot,
+			#home:checked ~ .title .home,
+			#international:checked ~ .title .international{
+				background: #F7F7F7;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<input type="radio" name="tabs" id="hot" checked />
+			<input type="radio" name="tabs" id="home" />
+			<input type="radio" name="tabs" id="international" />
+			<nav class="title">
+				<ul>
+					<li class="hot">
+						<label for="hot">热门新闻</label>
+					</li>
+					<li class="home">
+						<label for="home">国内新闻</label>
+					</li>
+					<li class="international">
+						<label for="international">国际新闻</label>
+					</li>
+				</ul>
+			</nav>
+			<div class="main">
+				<ul class="hot-news">
+					<li>
+						<a href="JavaScript:;">总书记回信后，库尔班一家干了一件“大事”</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">天津、河北、山东开展主题教育初见成效</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">IMF重申人民币汇率符合中国经济基本面</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">人民日报华尔街日报驳美反华极端人物纳瓦罗</a>
+					</li>
+				</ul>
+				<ul class="home-news">
+					<li>
+						<a href="JavaScript:;">自治区党委常委会召开会议 李纪恒主持</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">香港9万人怒吼促查暴乱黑手：“口罩党”撕下假面！</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">李纪恒：推动河湖长制由全面建立转向全面见效</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">受台风“利奇马”影响，北京南站部分列车停运</a>
+					</li>
+				</ul>
+				<ul class="international-news">
+					<li>
+						<a href="JavaScript:;">乐极生悲！把章鱼放脸上拍照，美国女子受伤就医</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">美国一黑社会帮派持刀行凶 造成严重死伤</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">这届动物成精了！还有什么它们不会的吗？</a>
+					</li>
+					<li>
+						<a href="JavaScript:;">美佛州一街道出现大批蓝蟹 或因持续大雨离开洞穴</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

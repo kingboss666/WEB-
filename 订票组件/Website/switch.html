@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zn">
+	<head>
+		<meta charset="utf-8">
+		<title>switch</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var data = prompt('今天是礼拜几');
+			if(data == ""){
+				document.write('不告诉我日期没法告诉你吃啥呢');
+			}else if(data<1 || data>7){
+				document.write('你的日期输入错误呢');
+			}else{
+				document.write("星期"+data+"吃");
+				switch (Number(data)){
+					case 1:
+						document.write("米饭；");
+						break;
+					case 2:
+						document.write("汉堡；");
+						break;
+					case 3:
+						document.write("鸡肉；");
+						break;
+					case 4:
+						document.write("包子；");
+						break;
+					case 5:
+						document.write("牛奶；");
+						break;
+					case 6:
+						document.write("猪肉；");
+						break;
+					default:
+						document.write("薯条；");
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

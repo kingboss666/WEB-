@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>QQ弹窗</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				height: 720px;
+				overflow: hidden;
+			}
+			#myAD{
+				position: fixed;
+				width: 400px;
+				height: 225px;
+				border: 2px solid #000;
+				bottom: 0;
+				right: 18px;
+			}
+			.btn{
+				position: absolute;
+				top: 0;
+				right: 0;
+				cursor: pointer;
+			}
+			.bg{
+				width: 400px;
+				height: 225px;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe src="http://www.qq.com" frameborder="0" width="100%" height="100%"></iframe>
+		<div id="myAD">
+			<img src="images/close.jpg"  class="btn" id="myClass">
+			<a href="#"><img src="images/0.jpg" class="bg"></a>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var myAD = document.getElementById("myAD");
+		var myClass = document.getElementById("myClass");
+		var adHeigth = 0;
+		var show = null;
+		myAD.style.height = "0";
+		
+		window.onload = function(){
+			//页面加载完成 弹出弹窗
+			show = setInterval(adShowFunc,10);
+		}
+		myClass.onclick = function(){
+			//点击关闭
+			if(show == null){
+				show = setInterval(removeFunc,10);
+			}
+		}
+		
+		function adShowFunc(){
+			//弹窗升起
+			if(adHeigth<225){
+				adHeigth +=2;
+				myAD.style.height = adHeigth + "px";
+			}else{
+				myAD.style.height = "225px";
+				clearInterval(show);
+				show = null
+			}
+		}	
+		function removeFunc(){
+			//弹窗落下
+			if(adHeigth>0){
+				adHeigth -=2;
+				myAD.style.height = adHeigth + "px";
+			}else{
+				myAD.style.height = "0";
+				clearInterval(show);
+				myAD.style.display = "none";
+				show = null;
+			}
+		}
+	</script>
+</html>

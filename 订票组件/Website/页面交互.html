@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>交互</title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				height: 300px;
+				background-color: yellowgreen;
+				margin-bottom:10px ;
+				overflow: hidden;
+			}
+			button{
+				width: 100px;
+				height: 50px;
+				background-color: #F0AD4E;
+			}
+		</style>
+	</head>
+	<body>
+		<p>等你来撩，最近撩的记录</p>
+		<div id="myDiv"></div>
+		<button id="btn">点我点我</button>
+		
+		<script type="text/javascript">
+			var btnDom = document.getElementById("btn");
+			var myDivDom = document.getElementById("myDiv")
+			
+			btnDom.onclick = function(){
+				myDivDom.innerHTML += "等你好久了<br />";
+			}
+			
+			btnDom.onmouseover = function(){
+				myDivDom.innerHTML += "欢迎光临<br />";
+			}
+			
+			btnDom.onmouseout = function(){
+				myDivDom.innerHTML += "下次再来<br />";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>判断所有数据类型</title>
+		<script type="text/javascript">
+			function ccTypeof(cc){
+				var typename = Object.prototype.toString.call(cc);
+				
+				if( typename == "[object Object]"){
+					typename = "[object " + cc.constructor.name+"]";
+				}
+				return typename;
+			}
+			
+			function A(){
+				this.a = 1;
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

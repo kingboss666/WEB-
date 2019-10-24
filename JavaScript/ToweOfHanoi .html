@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<title>汉诺塔</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function hanoi(num,a,c,b){
+				if(num==1){
+					console.log(a+ "->" +c);
+				}else{
+					hanoi(num -1,a,b,c);
+					console.log(a+ "->" +c);
+					hanoi(num -1,b,c,a);
+				}
+			}
+			hanoi(5,"A","B","C");
+		</script>
+	</body>
+</html>
