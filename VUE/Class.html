@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态添加样式</title>
+    <style>
+        .shape {
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+            background-color: gray;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="shape" @click="btn" :style="divStyle"></div>
+        <button @click="start">开始</button>
+        <div class="shape" :class="divClass"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                borderRadius: 0,
+                isBolg: false
+            },
+            methods: {
+                btn: function () {
+                    if (this.borderRadius == 0) {
+                        this.borderRadius = 50;
+                    } else {
+                        this.borderRadius = 0;
+                    }
+                },
+                start: function () {
+                    var vm = this;
+                    window.setInterval(function () {
+                        console.log(vm.isBolg)
+                        vm.isBolg = !vm.isBolg;
+                    }, 1000);
+                }
+            },
+            computed: {
+                divStyle: function () {
+                    return {
+                        borderRadius: this.borderRadius + '%',
+                    }
+                },
+                divClass: function () {
+                    return {
+                        blue: this.isBolg,
+                        red: !this.isBolg
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义组件</title>
+</head>
+<body>
+    <div id="app">
+        <my-input  v-model="name"></my-input>
+        <my-movie></my-movie>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('my-movie',{
+            template: '<div><h1>{{movieName}}</h1><img v-bind:src="movieSrc" width="200px"></div>',
+            data: function(){
+                return {
+                    movieName: '我不是药神',
+                    movieSrc: './images/1.jpg'
+                }
+            }
+        })
+        const vue1 = new Vue({
+            el: "#app",
+            data: {
+                name: '我不是药神',
+            },
+            components: {
+                'my-input': {
+                    template: '<input type="text">',
+                }
+            }
+        })
+    </script>
+</body>
+</html>

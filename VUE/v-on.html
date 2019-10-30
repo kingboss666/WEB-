@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-on</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="btn">btn</button>
+        <p><input type="text" v-on:input="chang('value1',$event)"> {{value1}}</p>
+        <p><input type="text" v-on:keyup.enter="chang('value2',$event)"> {{value2}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                value1: "input框输入自动显示",
+                value2: "input框输入后按Enter显示",
+            },
+            methods: {
+                btn: function(){
+                    alert("你点击了按钮");
+                },
+                chang: function(value,e){
+                    if(value === "value1"){
+                        this.value1= e.target.value;
+                    }else if(value === "value2"){
+                        this.value2= e.target.value;
+                    } 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

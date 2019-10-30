@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if和v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="password.length >= 8">你的密码大于八位了</p>
+        <p v-else-if="password.length < 8 && password.length > 0">请输入一个更长的密码</p>
+        <p v-else>请输入你的密码</p>
+        <ol>
+            <li v-for="item in cate">{{item.name}}
+                <ul>
+                    <li v-for="sub in item.sub">{{sub}}</li>
+                </ul>
+            </li>
+        </ol>
+        <template v-for="item in arr">
+            <p>{{item}}</p>
+            <input type="text" :key="item">
+        </template>
+        <button @click="reverse">倒置</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                password: "12345678",
+                cate: [{
+                    name: "js",
+                    sub: ["vue","jq","react"]
+                },{
+                    name: "Databases",
+                    sub: ["MySql","Oracle","MongoDB"]
+                },{
+                    name: "OS",
+                    sub: ["macOS","Windows","Linux"]
+                }],
+                arr: [1,2,3]
+            },
+            methods: {
+                reverse: function(){
+                    this.arr.reverse();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
