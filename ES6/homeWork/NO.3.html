@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6作业</title>
+</head>
+<body>
+    <script>
+// 3. 根据所传参数筛选数组,返回筛选的数组
+    // const pull = (arr,...str)=>{
+    //     str.forEach((ele)=>{
+    //         arr.forEach((item,index)=>{
+    //             if(ele === item){
+    //                 arr.splice(index,1);
+    //             }
+    //         })
+    //     })
+    //     return arr;
+    // }
+
+    const pull = (arr,...args) => arr.filter( item => !args.includes(item));
+
+    let arra1 = ['a', 'b', 'c', 'a', 'b', 'c'];
+    console.log(pull(arra1, 'a', 'c'));  //["b","b"]
+    let arra2 =  ['a', 'b', 'c', 'a', 'b', 'c'];
+    console.log(pull(arra2, 'b')); //["a","c","a","c"]
+    </script>
+</body>
+</html>

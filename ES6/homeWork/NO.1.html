@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6作业</title>
+</head>
+
+<body>
+    <script>
+        // 第一题
+        // const dig = (obj, prop) => {
+        //     if(prop in obj){
+        //         return obj[prop];
+        //     }else{
+        //         let result;
+        //         for(let target in obj){
+        //             if(typeof obj[target] === "object"){
+        //                 result = dig(obj[target],prop)
+        //             }
+        //         }
+        //         return result;
+        //     }
+        // }
+        const dig = (obj, prop) => {
+            if(prop in obj){
+                return obj[prop];
+            }else{
+                return Object.values(obj).reduce((val,item)=>{
+                    if(val !== undefined) return val;
+                    if(typeof item === 'object'){
+                        return dig(item,prop)
+                    }
+                },undefined);
+            }
+        }
+        //dig() => dig() => dig() => return obj[prop] 'some data'
+        const data = {
+            level1: {
+                level2: {
+                    level3: 'some data'
+                },
+            },
+            level4: 'Hi'
+        };
+        const dog = {
+            "status": "success",
+            "message": "https://images.dog.ceo/breeds/african/n02116738_1105.jpg"
+        }
+        console.log(dig(data, 'level3'));
+        console.log(dig(data, 'level4'));
+        console.log(dig(dog, 'message'));
+
+
+
+    </script>
+</body>
+
+</html>

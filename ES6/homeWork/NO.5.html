@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6作业</title>
+</head>
+<body>
+    <script>
+    // 5. 深度克隆（用es6语法）
+    const deepClone = (obj)=>{
+        let object2 = JSON.parse(JSON.stringify(obj));
+        return(object2);
+    }
+
+    const a = { foo: 'bar', obj: { a: 1, b: 2 } };
+    const b = deepClone(a); // a !== b, a.obj !== b.obj
+    b.ccc = 1;
+    console.log(a)
+    console.log(b)
+
+    </script>
+</body>
+</html>

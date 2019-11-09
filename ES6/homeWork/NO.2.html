@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6作业</title>
+</head>
+<body>
+    <script>
+//         2. 写一个函数matches,比较两个对象 看是否第一个对象包含第二个对象的所有属性
+
+        // 第二题
+        // const matches = (obj1,obj2)=>{
+        //     let flag1 = false;
+        //     for(let prop2 in obj2){
+        //         let flag = false;
+        //         for(let prop1 in obj1){
+        //             if(prop1 === prop2){
+        //                 flag = true;
+        //             }
+        //         }
+        //         if(!flag){
+        //             flag1 = true;
+        //             return false;
+        //         }
+        //     }
+        //     if(!flag1){
+        //         return true
+        //     }
+        // }
+        //every
+        const matches = (obj1,obj2) => Object.keys(obj2).every( key => obj1.hasOwnProperty(key))
+
+        console.log(matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true })); // true
+        console.log(matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true })); // false
+        console.log(matches({ hair: 'long', beard: true }, { age: 26, hair: 'long', beard: true })); // false
+    </script>
+</body>
+</html>
